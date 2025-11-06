@@ -33,6 +33,9 @@ class FileOrganizer:
                 if file.name == Path(__file__).name:
                     continue
 
+                # Skip hidden files
+                if file.name.startswith("."):
+                    continue
 
                 category = self.get_category(file.suffix)
                 full_path = self.folder_path / category
